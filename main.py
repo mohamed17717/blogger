@@ -78,7 +78,7 @@ def setBlog():
   global waiting
 
   if waiting: return
-  waiting = True
+  # waiting = True
 
   bloggers = File.read('./blogger/bloggers.json')
 
@@ -104,7 +104,7 @@ def setBlog():
 @app.route('/zyx')
 def index():
   setBlog()
-  return jsonify(success=True)
+  return 'waiting' if waiting else 'i will send email'
 
 @app.route('/xyz')
 def add_guest_post():
