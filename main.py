@@ -11,8 +11,7 @@ class BloggerBackend:
     self.email = email
     self.credentials = {
       'user': "thegoodzone.help@gmail.com",
-      'password': 'the best school',
-      'port': 465
+      'password': 'the best school'
     }
 
   def send(self, title, blogContent):
