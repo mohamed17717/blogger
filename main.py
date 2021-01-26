@@ -119,3 +119,8 @@ def add_guest_post():
 
 web_site.run(host='0.0.0.0', port=8080)
 # uptime every 45 minutes
+
+def create_app():
+  app = Flask(__name__)
+  # app.config.from_pyfile(config_filename)
+  return app
