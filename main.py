@@ -1,8 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from random import choice
 
-from threading import Thread
-
 import yagmail
 import json
 import os
@@ -106,7 +104,7 @@ def setBlog():
 
 @app.route('/zyx')
 def index():
-  Thread(target=setBlog).start()
+  setBlog()
   return jsonify(success=True)
 
 @app.route('/xyz')
