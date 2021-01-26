@@ -112,8 +112,8 @@ def index():
 @app.route('/xyz')
 def add_guest_post():
   url = request.args.get('post')
+  if not url: return 'not url'
   File.write(url+'\n', 'posts.txt', 'a')
-  print(url)
-  return jsonify(success=True)
+  return 'done'
 
 
