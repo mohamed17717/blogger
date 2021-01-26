@@ -84,7 +84,7 @@ def setBlog():
   bloggers = File.read('./blogger/bloggers.json')
 
   for blog_type, blog_email in bloggers.items():
-    blogs_location = f'./blogs-store/{blog_type}.json'
+    blogs_location = f'./blogger/blogs-store/{blog_type}.json'
     blogs = File.read(blogs_location)
 
     blogger = BloggerBackend(blog_email)
@@ -111,7 +111,7 @@ def index():
 def add_guest_post():
   url = request.args.get('post')
   if not url: return 'not url'
-  File.write(url+'\n', 'posts.txt', 'a')
+  File.write(url+'\n', './blogger/posts.txt', 'a')
   return 'done'
 
 
