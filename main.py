@@ -73,7 +73,7 @@ class File:
         return os.path.isfile(location) and os.access(location, os.R_OK)
 
 
-web_site = Flask(__name__)
+app = Flask(__name__)
 
 
 waiting = False
@@ -104,12 +104,12 @@ def setBlog():
   waiting = False
 
 
-@web_site.route('/zyx')
+@app.route('/zyx')
 def index():
   Thread(target=setBlog).start()
   return jsonify(success=True)
 
-@web_site.route('/xyz')
+@app.route('/xyz')
 def add_guest_post():
   url = request.args.get('post')
   File.write(url+'\n', 'posts.txt', 'a')
@@ -117,10 +117,3 @@ def add_guest_post():
   return jsonify(success=True)
 
 
-web_site.run(host='0.0.0.0', port=8080)
-# uptime every 45 minutes
-
-def create_app():
-  app = Flask(__name__)
-  # app.config.from_pyfile(config_filename)
-  return app
