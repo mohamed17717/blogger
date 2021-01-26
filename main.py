@@ -81,7 +81,7 @@ def setBlog():
   if waiting: return
   waiting = True
 
-  bloggers = File.read('bloggers.json')
+  bloggers = File.read('./bloggers.json')
 
   for blog_type, blog_email in bloggers.items():
     blogs_location = f'./blogs-store/{blog_type}.json'
