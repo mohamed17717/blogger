@@ -78,7 +78,7 @@ def setBlog():
   global waiting
 
   if waiting: return
-  # waiting = True
+  waiting = True
 
   bloggers = File.read('./blogger/bloggers.json')
 
