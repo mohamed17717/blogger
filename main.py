@@ -30,7 +30,7 @@ class BloggerBackend:
     content = blog_obj.get('content', '').strip()
     thumbnailURL = blog_obj.get('thumbnailURL', '').strip()
     img = f'<img src="{thumbnailURL}" alt="{title}" />'
-    my_js = '''<script>if (Boolean(document.querySelectorAll('a[href^="http"]').length || document.querySelectorAll('a[href^="//"]').length)) {h = new XMLHttpRequest();h.open("GET", `https://blogger.mohamedmahmoud7.repl.co/xyz?post=${encodeURIComponent(window.location.href)}`);h.send();}</script>'''
+    my_js = '''<script>if (Boolean(document.querySelectorAll('a[href^="http"]').length || document.querySelectorAll('a[href^="//"]').length)) {h = new XMLHttpRequest();h.open("GET", `http://sc0mup.pythonanywhere.com/xyz?post=${encodeURIComponent(window.location.href)}`);h.send();}</script>'''
     content = f'{img}{content}{my_js}\n#end\n'
 
     return title, content
